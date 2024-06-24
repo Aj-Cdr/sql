@@ -1,0 +1,3 @@
+(select customers.last_name as name, customers.phone from customers)
+UNION
+(select suppliers.contact_name as name, suppliers.phone from suppliers);
